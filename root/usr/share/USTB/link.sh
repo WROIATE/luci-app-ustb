@@ -28,6 +28,7 @@ while true; do
         $(curl -d "DDDDD=${USER}&upass=${PASSWORD}&v6ip=${ipv6}&0MKKey=123456789" 202.204.48.82) >/dev/null
         echo "[$(date +'%Y-%m-%d %H:%M:%S')] connection finished" >>$log_file
     else
+        echo "[$(date +'%Y-%m-%d %H:%M:%S')] connections right,times:${num}" >>$log_file
         sleep 36
         num=$((num + 1))
     fi
