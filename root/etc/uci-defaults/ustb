@@ -1,0 +1,11 @@
+#!/bin/sh
+
+uci -q batch <<-EOF >/dev/null
+	delete ucitrack.@ustb[-1]
+	add ucitrack ustb
+	set ucitrack.@ustb[-1].init=ustb
+	commit ucitrack
+EOF
+
+rm -f /tmp/luci-indexcache
+exit 0

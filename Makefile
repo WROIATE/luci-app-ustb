@@ -35,13 +35,17 @@ $(INSTALL_DIR) $(1)/etc/config
 		$(INSTALL_DIR) $(1)/etc/init.d
 		$(INSTALL_DIR) $(1)/usr/lib/lua/luci/model/cbi
 		$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller
+		$(INSTALL_DIR) $(1)/etc/uci-defaults
+		$(INSTALL_DIR) $(1)/usr/lib/lua/luci/view/ustb
 
+		$(INSTALL_CONF) ./root/etc/uci-defaults/* $(1)/etc/uci-defaults
 		$(INSTALL_CONF) ./root/etc/config/ustb $(1)/etc/config/ustb
 		$(INSTALL_BIN) ./root/etc/init.d/ustb $(1)/etc/init.d/ustb
 		$(INSTALL_BIN) ./root/usr/share/USTB/link.sh $(1)/usr/share/USTB/link.sh
 		$(INSTALL_DATA) ./luasrc/model/cbi/ustb.lua $(1)/usr/lib/lua/luci/model/cbi/ustb.lua
 		$(INSTALL_DATA) ./luasrc/model/cbi/ustblog.lua $(1)/usr/lib/lua/luci/model/cbi/ustblog.lua
 		$(INSTALL_DATA) ./luasrc/controller/ustb.lua $(1)/usr/lib/lua/luci/controller/ustb.lua
+		$(INSTALL_DATA) ./luasrc/view/ustb/ustb.htm $(1)/usr/lib/lua/luci/view/ustb/ustb.htm
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))

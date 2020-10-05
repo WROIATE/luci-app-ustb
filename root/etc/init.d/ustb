@@ -1,27 +1,18 @@
 #!/bin/sh /etc/rc.common
 START=50
 
-link() {
-	local enable
-	config_get_bool enable $1 enable
-	if [ $enable != 1 ]; then
-		return
-	fi
-	local username
-	local password
-	local enableV6
-	config_get username $1 username
-	config_get password $1 password
-	config_get_bool enableV6 $1 enableV6
-	/usr/share/USTB/link.sh $username $password $enableV6 &
-}
 start() {
-	config_load ustb
-	config_foreach link login
+	enable=$(uci get ustb.@login[0].enable)
+	if [ "$enable" == 1 ]; then
+		/usr/share/USTB/link.sh &
+	fi
 }
 
-stop(){
-	pid=`ps | grep link.sh | grep -v grep | awk '{print $1}'`
-	kill -9 $pid
-	echo "link stopped"
+stop() {
+	pid=$(ps | grep link.sh | grep -v grep | awk '{print $1}')
+	if [ "$pid" != "" ]; then
+		kill -9 $pid
+	fi
+	rm -rf /usr/share/USTB/ustb.log
+	rm -rf /tmp/ustb.log
 }
