@@ -7,8 +7,9 @@
 #### To do:
 - [x] 基本自动连接
 - [x] 插件状态显示
+- [x] 自动设置IPV6 nat6
 - [ ] 低费用邮件提醒
 - [ ] 自定义登录地址、检测地址等高级设置
-- [ ] 自动设置IPV6 nat6
+
 
 代码借鉴了[Lean](https://github.com/coolsnowwolf/lede)的**luci-app-unblockmusic、luci-app-vlmcsd**
