@@ -24,10 +24,10 @@ while true; do
             ipv6=""
         fi
         $(curl -sd "DDDDD=${USER}&upass=${PASSWORD}&v6ip=${ipv6}&0MKKey=123456789" 202.204.48.82) >/dev/null
-        echo "[$(date +'%Y-%m-%d %H:%M:%S')] Connected" >>$log_file
+        echo "[$(date +'%Y-%m-%d %H:%M:%S')] Connecting to 202.204.48.82" >>$log_file
     else
         if [ $(expr $num % 100) == 0 ]; then
-            echo "[$(date +'%Y-%m-%d %H:%M:%S')] The Connection is normal:${num}" >>$log_file
+            echo "[$(date +'%Y-%m-%d %H:%M:%S')] The Connection is normally:${num}" >>$log_file
         fi
         sleep 36
         num=$((num + 1))
