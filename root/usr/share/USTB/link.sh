@@ -27,7 +27,7 @@ while true; do
         echo "[$(date +'%Y-%m-%d %H:%M:%S')] Connecting to 202.204.48.82" >>$log_file
     else
         if [ $(expr $num % 100) == 0 ]; then
-            echo "[$(date +'%Y-%m-%d %H:%M:%S')] The Connection is normally:${num}" >>$log_file
+            echo "[$(date +'%Y-%m-%d %H:%M:%S')] The Connection is normal:${num}" >>$log_file
         fi
         sleep 36
         num=$((num + 1))
