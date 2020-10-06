@@ -19,7 +19,7 @@ while true; do
         echo "[$(date +'%Y-%m-%d %H:%M:%S')] Ping failed, now will try to connect USTB network" >>$log_file
         if [ "$V6" == "1" ]; then
             ipv6=$(ip -6 address show | grep '2001:da8:208' | awk '{print $2}' | cut -d '/' -f1)
-            [ "$ipv6" != "" ] && echo "[$(date +'%Y-%m-%d %H:%M:%S')] IPV6 Address:${ipv6}" >>$log_file || echo "[$(date +'%Y-%m-%d %H:%M:%S')] IPV6 Address Can't be found" >>$log_file
+            [ "$ipv6" != "" ] && echo "[$(date +'%Y-%m-%d %H:%M:%S')] IPV6 Address:[${ipv6}]" >>$log_file || echo "[$(date +'%Y-%m-%d %H:%M:%S')] IPV6 Address Can't be found" >>$log_file
         else
             ipv6=""
         fi
