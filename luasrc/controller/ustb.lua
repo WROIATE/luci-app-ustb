@@ -6,7 +6,8 @@ function index()
 	end
         entry({"admin", "services", "ustb"}, firstchild(), _("USTB"), 100)
         entry({"admin", "services", "ustb","general"}, cbi("ustb"), _("Base Setting"), 1)
-        entry({"admin", "services", "ustb", "log"},form("ustblog"), _("Log"), 2)
+        entry({"admin", "services", "ustb","advance"}, cbi("advance"), _("Advance Setting"), 2)
+        entry({"admin", "services", "ustb", "log"},form("ustblog"), _("Log"), 3)
         entry({"admin","services","ustb","status"},call("act_status")).leaf=true
 end
 

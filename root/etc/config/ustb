@@ -2,3 +2,8 @@
 config login
 	option enable '0'
 	option enableV6 '1'
+
+config advance
+	option test_v4url ""
+	option test_v6url ""
+	option login_ip "202.204.48.82"
