@@ -1,0 +1,5 @@
+#!/bin/sh
+
+[ "$ACTION" = ifup ] || exit 0
+
+/usr/share/USTB/ipv6.sh

@@ -2,8 +2,7 @@
 START=50
 
 start() {
-	echo -n "" >/usr/share/USTB/link.log
-	rm -rf /tmp/ustb.log
+	stop
 	enable=$(uci get ustb.@login[0].enable)
 	if [ "$enable" == 1 ]; then
 		echo "[$(date +'%Y-%m-%d %H:%M:%S')] Service start" >>/usr/share/USTB/link.log
