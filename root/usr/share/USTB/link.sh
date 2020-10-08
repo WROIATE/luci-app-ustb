@@ -18,7 +18,7 @@ else
 fi
 while true; do
     file_size=$(du -a /root/link.log | awk '{print $1}')
-    [ $(curl -I -m 4 -o /dev/null -s -w %{http_code}"\n" '${URL}') == 200 ] && Error=0 || Error=1
+    [ $(curl -I -m 4 -o /dev/null -s -w %{http_code}"\n" "${URL}") == 200 ] && Error=0 || Error=1
     if [ $Error != 0 ]; then
         echo "[$(date +'%Y-%m-%d %H:%M:%S')] Curl failed, now will try to connect USTB network" >>$log_file
         if [ "$V6" == "1" ]; then
