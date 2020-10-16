@@ -6,7 +6,6 @@ start() {
 	enable=$(uci get ustb.@login[0].enable)
 	if [ "$enable" == 1 ]; then
 		echo "[$(date +'%Y-%m-%d %H:%M:%S')] Service start" >>/usr/share/USTB/link.log
-		/usr/share/USTB/ipv6.sh
 		/usr/share/USTB/link.sh &
 	fi
 }

@@ -4,7 +4,7 @@ s = m:section(TypedSection, "login", "")
 s.addremove = false
 s.anonymous = true
 enable = s:option(Flag, "enable", translate("启用"))
-enableV6 = s:option(Flag, "enableV6", translate("开启V6"),translate("勾选添加V6 Nat6防火墙规则"))
+enableV6 = s:option(Flag, "enableV6", translate("使用V6"),translate("勾选使用IPV6检测网络连接"))
 enableV6.optional = false
 enableV6:depends("enable","1")
 name = s:option(Value, "username", translate("账号"),translate("你的学号"))
