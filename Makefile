@@ -1,8 +1,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-ustb
-PKG_VERSION=1.0
-PKG_RELEASE:=2
+PKG_VERSION=2.0
+PKG_RELEASE:=1
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 
@@ -12,7 +12,7 @@ define Package/luci-app-ustb
 		SECTION:=luci
 		CATEGORY:=LuCI
 		SUBMENU:=3. Applications
-		TITLE:=USTB for LuCI
+		TITLE:=USTB Net Tools for LuCI
 		PKGARCH:=all
 endef
 
@@ -37,14 +37,13 @@ $(INSTALL_DIR) $(1)/etc/config
 		$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller
 		$(INSTALL_DIR) $(1)/etc/uci-defaults
 		$(INSTALL_DIR) $(1)/usr/lib/lua/luci/view/ustb
-		$(INSTALL_DIR) $(1)/etc/hotplug.d/iface/
 
 		$(INSTALL_CONF) ./root/etc/uci-defaults/* $(1)/etc/uci-defaults
 		$(INSTALL_CONF) ./root/etc/config/ustb $(1)/etc/config/ustb
 		$(INSTALL_BIN) ./root/etc/init.d/ustb $(1)/etc/init.d/ustb
-		$(INSTALL_BIN) ./root/etc/hotplug.d/iface/099-ustb $(1)/etc/hotplug.d/iface/099-ustb
 		$(INSTALL_BIN) ./root/usr/share/USTB/link.sh $(1)/usr/share/USTB/link.sh
 		$(INSTALL_BIN) ./root/usr/share/USTB/ipv6.sh $(1)/usr/share/USTB/ipv6.sh
+		$(INSTALL_BIN) ./root/usr/share/USTB/fee.sh $(1)/usr/share/USTB/fee.sh
 		$(INSTALL_DATA) ./luasrc/model/cbi/advance.lua $(1)/usr/lib/lua/luci/model/cbi/advance.lua
 		$(INSTALL_DATA) ./luasrc/model/cbi/ustb.lua $(1)/usr/lib/lua/luci/model/cbi/ustb.lua
 		$(INSTALL_DATA) ./luasrc/model/cbi/ustblog.lua $(1)/usr/lib/lua/luci/model/cbi/ustblog.lua
