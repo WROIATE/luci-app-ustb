@@ -6,9 +6,9 @@
 				if (data.running) {
 					var info = ""
 					if (data.fee != "") {
-						info = "账号剩余余额：" + data.fee
+						info = "账号余额：" + data.fee
 					}
-					var links = '<em><b><font color=green>USTB <%:RUNNING%> ' + info + '</font></b></em>';
+					var links = '<em><b><font color=green>USTB <%:RUNNING%> </br>' + info + '</font></b></em>';
 					tb.innerHTML = links;
 				} else {
 					tb.innerHTML = '<em><b><font color=red>USTB <%:NOT RUNNING%></font></b></em>';
