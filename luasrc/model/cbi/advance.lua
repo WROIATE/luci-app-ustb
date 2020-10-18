@@ -14,7 +14,7 @@ button_update_ipv6 = s:option (Button, "_button_update_ipv6", translate("添加I
 button_update_ipv6.inputstyle = "apply" 
 button_update_ipv6.inputtitle = translate ("点击添加")
 
-function button_update_ipv6 (self, section, value)
+function button_update_ipv6.write (self, section, value)
 	luci.sys.call ( "/usr/share/USTB/ipv6.sh > /dev/null")
 end 
 return m
