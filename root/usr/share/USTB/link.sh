@@ -34,7 +34,7 @@ else
 fi
 
 while true; do
-    file_size=$(du -a /root/link.log | awk '{print $1}')
+    file_size=$(du -a ${log_file} | awk '{print $1}')
     check
     if [ $Error != 0 ]; then
         echo "[$(date +'%Y-%m-%d %H:%M:%S')] Curl failed, now will try to connect USTB network" >>$log_file
@@ -45,14 +45,11 @@ while true; do
         done
         echo "[$(date +'%Y-%m-%d %H:%M:%S')] Connecting to ${Login_IP}" >>$log_file
     else
-        if [ $(expr $num % 100) == 0 ]; then
-            echo "[$(date +'%Y-%m-%d %H:%M:%S')] The Connection is normal:${num}" >>$log_file
-        fi
         sleep 36
         num=$((num + 1))
     fi
-    if [ $(expr $file_size) -ge 1024 ]; then
+    if [ $(expr $file_size) -ge 128 ]; then
         echo -n "" >$log_file
-        echo 1024 >>$log_file
+        echo "[$(date +'%Y-%m-%d %H:%M:%S')] Clean log, loop time:${num}" >>$log_file
     fi
 done
