@@ -22,12 +22,12 @@ connection() {
 }
 
 check() {
-    [ $(curl -I -m 4 -o /dev/null -s -w %{http_code}"\n" "${URL}") == 200 ] && Error=0 || Error=1
+    [ $(curl -I -m 4 -o /dev/null -s -w %{http_code}"\n" "${URL}") != 000 ] && Error=0 || Error=1
 }
 
 if [ "$V6" == "1" ]; then
     echo "[$(date +'%Y-%m-%d %H:%M:%S')] Check Connections with V6" >>$log_file
-    [ "$TEST_V6URL" != "" ] && URL=$TEST_V6URL || URL='http://cippv6.ustb.edu.cn/get_ip.php'
+    [ "$TEST_V6URL" != "" ] && URL=$TEST_V6URL || URL='https://v6.myip.la/'#使用ipip.net的API
 else
     echo "[$(date +'%Y-%m-%d %H:%M:%S')] Check Connections with V4" >>$log_file
     [ "$TEST_V4URL" != "" ] && URL=$TEST_V4URL || URL='https://www.baidu.com/'
