@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-ustb
-PKG_VERSION=2.0
+PKG_VERSION=2.1
 PKG_RELEASE:=1
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
@@ -14,6 +14,7 @@ define Package/luci-app-ustb
 		SUBMENU:=3. Applications
 		TITLE:=USTB Net Tools for LuCI
 		PKGARCH:=all
+		DEPENDS:=+curl
 endef
 
 define Package/luci-app-ustb/description
