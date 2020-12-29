@@ -2,7 +2,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-ustb
 PKG_VERSION=2.1
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 
@@ -32,7 +32,8 @@ endef
 
 define Package/luci-app-ustb/install
 $(INSTALL_DIR) $(1)/etc/config
-		$(INSTALL_DIR) $(1)/usr/share/USTB
+		$(INSTALL_DIR) $(1)/usr/share/USTB/script
+		$(INSTALL_DIR) $(1)/usr/share/USTB/rule
 		$(INSTALL_DIR) $(1)/etc/init.d
 		$(INSTALL_DIR) $(1)/usr/lib/lua/luci/model/cbi
 		$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller
@@ -42,9 +43,11 @@ $(INSTALL_DIR) $(1)/etc/config
 		$(INSTALL_CONF) ./root/etc/uci-defaults/* $(1)/etc/uci-defaults
 		$(INSTALL_CONF) ./root/etc/config/ustb $(1)/etc/config/ustb
 		$(INSTALL_BIN) ./root/etc/init.d/ustb $(1)/etc/init.d/ustb
-		$(INSTALL_BIN) ./root/usr/share/USTB/link.sh $(1)/usr/share/USTB/link.sh
-		$(INSTALL_BIN) ./root/usr/share/USTB/ipv6.sh $(1)/usr/share/USTB/ipv6.sh
-		$(INSTALL_BIN) ./root/usr/share/USTB/fee.sh $(1)/usr/share/USTB/fee.sh
+		$(INSTALL_BIN) ./root/usr/share/USTB/script/link.sh $(1)/usr/share/USTB/script/link.sh
+		$(INSTALL_BIN) ./root/usr/share/USTB/script/ipv6.sh $(1)/usr/share/USTB/script/ipv6.sh
+		$(INSTALL_BIN) ./root/usr/share/USTB/script/fee.sh $(1)/usr/share/USTB/script/fee.sh
+		$(INSTALL_DATA) ./root/usr/share/USTB/rule/firewall.ustb $(1)/usr/share/USTB/rule/firewall.ustb
+		
 		$(INSTALL_DATA) ./luasrc/model/cbi/advance.lua $(1)/usr/lib/lua/luci/model/cbi/advance.lua
 		$(INSTALL_DATA) ./luasrc/model/cbi/ustb.lua $(1)/usr/lib/lua/luci/model/cbi/ustb.lua
 		$(INSTALL_DATA) ./luasrc/model/cbi/ustblog.lua $(1)/usr/lib/lua/luci/model/cbi/ustblog.lua

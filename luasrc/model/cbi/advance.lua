@@ -15,6 +15,6 @@ button_update_ipv6.inputstyle = "apply"
 button_update_ipv6.inputtitle = translate ("点击添加")
 
 function button_update_ipv6.write (self, section, value)
-	luci.sys.call ( "/usr/share/USTB/ipv6.sh > /dev/null")
+	luci.sys.call ( "/usr/share/USTB/script/ipv6.sh > /dev/null")
 end 
 return m

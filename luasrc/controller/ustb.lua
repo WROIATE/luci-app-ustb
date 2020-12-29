@@ -14,7 +14,7 @@ end
 function act_status()
         local e={}
         e.running=luci.sys.call("ps -w | grep link.sh | grep -v grep >/dev/null")==0
-        e.fee=luci.sys.exec("/usr/share/USTB/fee.sh")
+        e.fee=luci.sys.exec("/usr/share/USTB/script/fee.sh")
         luci.http.prepare_content("application/json")
         luci.http.write_json(e)
 end
