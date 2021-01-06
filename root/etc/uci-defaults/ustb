@@ -9,7 +9,6 @@ uci -q batch <<-EOF >/dev/null
 	set firewall.ustb=include
 	set firewall.ustb.type=script
 	set firewall.ustb.path=/usr/share/USTB/rule/firewall.ustb
-	set firewall.ustb.reload=1
 	commit firewall
 EOF
 
