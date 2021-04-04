@@ -20,3 +20,4 @@ else
 	echo "[$(date +'%Y-%m-%d %H:%M:%S')] Can't find IPV6 Gateway or Net Interface. Please check your IPV6" >>${LogFile}
 fi
 uci set ustb.@advance[0].nat='1'
+uci commit ustb
