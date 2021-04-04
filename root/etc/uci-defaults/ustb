@@ -7,7 +7,6 @@ uci -q batch <<-EOF >/dev/null
 	commit ucitrack
 	delete firewall.ustb
 	set firewall.ustb=include
-	set firewall.ustb.type=script
 	set firewall.ustb.path=/usr/share/USTB/rule/firewall.ustb
 	commit firewall
 EOF

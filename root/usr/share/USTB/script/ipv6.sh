@@ -5,7 +5,6 @@ Rules="/usr/share/USTB/rule/firewall.ustb"
 Gateway=$(ip -6 route | sed -n "/default from/p" | awk '{print $5}')
 Eth=$(ip -6 route | sed -n "/default from/p" | awk '{print $7}')
 
-echo -n "" >${Rules}
 if [ "$Gateway" != "" ] && [ "$Eth" != "" ]; then
 	echo "[$(date +'%Y-%m-%d %H:%M:%S')] Got IPV6 Net Interface ${Eth} and Gateway ${Gateway}" >>${LogFile}
 	cat >${Rules} <<EOF
@@ -20,3 +19,4 @@ EOF
 else
 	echo "[$(date +'%Y-%m-%d %H:%M:%S')] Can't find IPV6 Gateway or Net Interface. Please check your IPV6" >>${LogFile}
 fi
+uci set ustb.@advance[0].nat='1'

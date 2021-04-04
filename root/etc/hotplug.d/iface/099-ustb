@@ -1,0 +1,12 @@
+#!/bin/sh
+
+[ "$ACTION" = ifup ] || exit 0
+
+nat=$(uci get ustb.@advance[0].nat)
+if [ "$nat" != "1" ]; then
+	return
+fi
+
+sleep 5
+
+/usr/sare/USTB/ipv6.sh
