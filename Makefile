@@ -35,7 +35,7 @@ $(INSTALL_DIR) $(1)/etc/config
 		$(INSTALL_DIR) $(1)/usr/share/USTB/script
 		$(INSTALL_DIR) $(1)/usr/share/USTB/rule
 		$(INSTALL_DIR) $(1)/etc/init.d
-		$(INSTALL_DIR) $(1)/usr/lib/lua/luci/model/cbi
+		$(INSTALL_DIR) $(1)/usr/lib/lua/luci/model/cbi/ustb
 		$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller
 		$(INSTALL_DIR) $(1)/etc/uci-defaults
 		$(INSTALL_DIR) $(1)/usr/lib/lua/luci/view/ustb
@@ -50,9 +50,9 @@ $(INSTALL_DIR) $(1)/etc/config
 		$(INSTALL_BIN) ./root/usr/share/USTB/script/fee.sh $(1)/usr/share/USTB/script/fee.sh
 		$(INSTALL_DATA) ./root/etc/hotplug.d/iface/099-ustb $(1)/etc/hotplug.d/iface/099-ustb
 		
-		$(INSTALL_DATA) ./luasrc/model/cbi/advance.lua $(1)/usr/lib/lua/luci/model/cbi/advance.lua
-		$(INSTALL_DATA) ./luasrc/model/cbi/ustb.lua $(1)/usr/lib/lua/luci/model/cbi/ustb.lua
-		$(INSTALL_DATA) ./luasrc/model/cbi/ustblog.lua $(1)/usr/lib/lua/luci/model/cbi/ustblog.lua
+		$(INSTALL_DATA) ./luasrc/model/cbi/advance.lua $(1)/usr/lib/lua/luci/model/cbi/ustb/advance.lua
+		$(INSTALL_DATA) ./luasrc/model/cbi/ustb.lua $(1)/usr/lib/lua/luci/model/cbi/ustb/ustb.lua
+		$(INSTALL_DATA) ./luasrc/model/cbi/ustblog.lua $(1)/usr/lib/lua/luci/model/cbi/ustb/ustblog.lua
 		$(INSTALL_DATA) ./luasrc/controller/ustb.lua $(1)/usr/lib/lua/luci/controller/ustb.lua
 		$(INSTALL_DATA) ./luasrc/view/ustb/ustb.htm $(1)/usr/lib/lua/luci/view/ustb/ustb.htm
 endef
