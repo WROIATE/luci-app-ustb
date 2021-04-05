@@ -15,7 +15,7 @@ button_add_nat6 = s:option(Button, '_button_add_nat6', translate('添加Nat6规�
 button_add_nat6.inputstyle = 'apply'
 button_add_nat6.inputtitle = translate('点击添加')
 
-button_del_nat6 = s:option(Button, '_button_del_nat6', translate('删除ßNat6规则'), translate('删除USTB规则'))
+button_del_nat6 = s:option(Button, '_button_del_nat6', translate('删除Nat6规则'), translate('删除USTB规则'))
 button_del_nat6.inputstyle = 'apply'
 button_del_nat6.inputtitle = translate('点击删除')
 
