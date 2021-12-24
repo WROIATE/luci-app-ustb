@@ -1,5 +1,5 @@
 #!/bin/sh
-LogFile="/usr/share/USTB/link.log"
+LogFile="/usr/share/ustb/link.log"
 PidFile="/var/run/ustb.pid"
 num=0
 Date=""

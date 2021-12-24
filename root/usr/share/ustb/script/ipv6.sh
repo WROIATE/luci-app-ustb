@@ -1,7 +1,7 @@
 #!/bin/sh
 
-LogFile="/usr/share/USTB/link.log"
-Rules="/usr/share/USTB/rule/firewall.ustb"
+LogFile="/usr/share/ustb/link.log"
+Rules="/usr/share/ustb/rule/firewall.ustb"
 Gateway=$(ip -6 route | sed -n "/default from/p" | awk '{print $5}')
 Eth=$(ip -6 route | sed -n "/default from/p" | awk '{print $7}')
 
