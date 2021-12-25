@@ -5,8 +5,8 @@ start() {
 	stop
 	enable=$(uci get ustb.@login[0].enable)
 	if [ "$enable" == 1 ]; then
-		echo "[$(date +'%Y-%m-%d %H:%M:%S')] Service start" >>/usr/share/USTB/link.log
-		/usr/share/USTB/script/link.sh &
+		echo "[$(date +'%Y-%m-%d %H:%M:%S')] Service start" >>/usr/share/ustb/link.log
+		/usr/share/ustb/script/link.sh &
 	fi
 }
 
@@ -15,6 +15,6 @@ stop() {
 	if [ "$pid" != "" ]; then
 		kill -9 $pid
 		rm -f /var/run/ustb.pid
-		echo "[$(date +'%Y-%m-%d %H:%M:%S')] Service stop" >>/usr/share/USTB/link.log
+		echo "[$(date +'%Y-%m-%d %H:%M:%S')] Service stop" >>/usr/share/ustb/link.log
 	fi
 }

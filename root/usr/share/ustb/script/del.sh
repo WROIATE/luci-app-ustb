@@ -1,7 +1,7 @@
 #!/bin/sh
 
-LogFile="/usr/share/USTB/link.log"
-Rules="/usr/share/USTB/rule/firewall.ustb"
+LogFile="/usr/share/ustb/link.log"
+Rules="/usr/share/ustb/rule/firewall.ustb"
 
 echo "[$(date +'%Y-%m-%d %H:%M:%S')] Delete Nat6 rules" >>${LogFile}
 cat >${Rules} <<EOF
